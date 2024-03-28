@@ -36,6 +36,11 @@ public class Graph {
         v2.addEdge(v1, weight,currEdge);
     }
 
+    public Map<String,Vertex> getVertices()
+    {
+        return this.vertices;
+    }
+
     // public ArrayList<Vertex> getVertices()
     // {
     //     return this.vertices;
