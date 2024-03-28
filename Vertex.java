@@ -27,4 +27,9 @@ public class Vertex {
     {
         return this.edges;
     }
+
+    @Override
+    public String toString() {
+        return "Vertex [name=" + name + ", edges=" + edges + ", connctsvt=" + connctsvt + "]";
+    }
 }

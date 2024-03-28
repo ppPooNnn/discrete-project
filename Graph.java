@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Graph {
     // private ArrayList<Vertex> vertices;
-    private Map<String,Vertex>vertices;
+    private Map<String,Vertex> vertices;
     private ArrayList<Edge> edgeList;
 
     public Graph()
