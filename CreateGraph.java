@@ -22,7 +22,6 @@ public class CreateGraph {
         sc.nextLine();
         createVertex();
         connectEdge();
-        isConnected(graph);
     }
 
     public void createVertex()
@@ -48,20 +47,9 @@ public class CreateGraph {
             this.endvt = graph.getVertexByName(endv);
             System.out.printf("with weight: ");
             int w = sc.nextInt();
+            sc.nextLine();
             graph.addEdge(startvt, endvt, w,"e"+i);
         }
-    }
-
-    public void isConnected(Graph graph)
-    {
-        Set<String>allvtname = graph.getVertices().keySet();
-        Map<String,Vertex>vtwithValue = graph.getVertices();
-        System.out.println(vtwithValue);
-        // for(String vtname:allvtname)
-        // {
-        //     Vertex currVt = vtwithValue.get(vtname);
-        //     System.out.println(currVt);
-        // }
     }
 
     public Graph getGraph()

@@ -39,7 +39,7 @@ public class Vertex {
         return "Vertex [name=" + name + ", edges=" + edges.toString() + ", connctsvt=" + this.getconnctVt() + "]";
     }
 
-    public ArrayList<String>getconnctVt()
+    public ArrayList<String> getconnctVt()
     {
         ArrayList<String>conVt = new ArrayList<>();
         for(Vertex vt:connctsvt)
@@ -48,5 +48,10 @@ public class Vertex {
             conVt.add(Vtname);
         }
         return conVt;
+    }
+
+    public ArrayList<Vertex> getListConnectVt()
+    {
+        return this.connctsvt;
     }
 }

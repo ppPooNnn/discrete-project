@@ -4,6 +4,6 @@ public class Process {
         CreateGraph cg = new CreateGraph();
         cg.creation();
         Spanning spGraph = new Spanning(cg.getGraph());
-        
+        spGraph.isConnected();
     }
 }
