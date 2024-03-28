@@ -11,30 +11,41 @@ public class CreateGraph {
     private Vertex endvt;
     private Scanner sc = new Scanner(System.in);
 
-    public void run()
+    public void creation()
     {
+        this.graph = new Graph();
         System.out.println("Please enter number of vertices and edges");
         System.out.printf("Vertex : ");
         this.vertices = sc.nextInt();
         System.out.printf("Edges : ");
         this.edges = sc.nextInt();
-        create();
+        sc.nextLine();
+        createVertex();
+        connectEdge();
         isConnected(graph);
     }
 
-    public void create()
+    public void createVertex()
     {
-        this.graph = new Graph();
+        System.out.println("Please enter vertices name");
+        for(int i = 0; i < vertices; i++)
+        {
+            System.out.printf("No.%d : ", i + 1);
+            graph.addVertex(sc.nextLine());
+        }
+    }
+
+    public void connectEdge()
+    {
         for(int i = 0;i<edges;i++)
         {
-            Scanner sc = new Scanner(System.in);
             System.out.printf("Edges "+ i +" ");
             System.out.printf("from: ");
             String startv = sc.nextLine();
-            this.startvt = graph.addVertex(startv);
+            this.startvt = graph.getVertexByName(startv);
             System.out.printf("to: ");
             String endv = sc.nextLine();
-            this.endvt = graph.addVertex(endv);
+            this.endvt = graph.getVertexByName(endv);
             System.out.printf("with weight: ");
             int w = sc.nextInt();
             graph.addEdge(startvt, endvt, w,"e"+i);
@@ -42,13 +53,19 @@ public class CreateGraph {
     }
 
     public void isConnected(Graph graph)
-    {  
+    {
         Set<String>allvtname = graph.getVertices().keySet();
         Map<String,Vertex>vtwithValue = graph.getVertices();
-        for(String vtname:allvtname)
-        {
-            Vertex currVt = vtwithValue.get(vtname);
-            System.out.println(currVt);
-        }
+        System.out.println(vtwithValue);
+        // for(String vtname:allvtname)
+        // {
+        //     Vertex currVt = vtwithValue.get(vtname);
+        //     System.out.println(currVt);
+        // }
+    }
+
+    public Graph getGraph()
+    {
+        return this.graph;
     }
 }

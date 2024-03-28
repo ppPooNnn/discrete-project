@@ -37,6 +37,6 @@ public class Edge {
     @Override
     public String toString()
     {
-        return this.name;
+        return this.name + " " + this.start.getName() + "," + this.end.getName() + " weight : " + this.weight;
     }
 }

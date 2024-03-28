@@ -5,6 +5,8 @@ public class Vertex {
     private ArrayList<Edge> edges;
     private ArrayList<Vertex>connctsvt;
 
+    public Vertex(){}
+
     public Vertex(String input)
     {
         this.name = input;

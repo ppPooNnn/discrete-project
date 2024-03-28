@@ -14,27 +14,31 @@ public class Graph {
         this.edgeList = new ArrayList<>();
     }
 
-    public Vertex addVertex(String name)
+    public void addVertex(String name)
     {
             Vertex currVertex;
         if (this.stratVt!=null) 
         {
             if (!vertices.containsKey(name)) {
-                 currVertex = new Vertex(name);
-                // this.vertices.add(newVertex);
+                currVertex = new Vertex(name);
                 this.vertices.put(name, currVertex);
-                return currVertex;
+                // return currVertex;
             }
             else{
                 currVertex = vertices.get(name);
-                return currVertex;
-            }    
+                // return currVertex;
+            }
         }
         else{
             currVertex = new Vertex(name);
             this.stratVt = currVertex;
-            return currVertex;
+            this.vertices.put(name, currVertex);
         }
+    }
+
+    public Vertex getVertexByName(String name)
+    {
+        return vertices.get(name);
     }
 
     public void addEdge(Vertex v1, Vertex v2, int weight,String en)
@@ -42,6 +46,7 @@ public class Graph {
         Edge currEdge = new Edge(v1, v2, weight,en);
         v1.addEdge(v2, weight,currEdge);
         v2.addEdge(v1, weight,currEdge);
+        edgeList.add(currEdge);
     }
 
     public Map<String,Vertex> getVertices()
@@ -52,6 +57,11 @@ public class Graph {
     public Vertex getStartVt()
     {
         return this.stratVt;
+    }
+
+    public ArrayList<Edge> getEdgesList()
+    {
+        return this.edgeList;
     }
     // public ArrayList<Vertex> getVertices()
     // {
