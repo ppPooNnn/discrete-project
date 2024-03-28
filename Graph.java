@@ -6,7 +6,7 @@ public class Graph {
     // private ArrayList<Vertex> vertices;
     private Map<String,Vertex> vertices;
     private ArrayList<Edge> edgeList;
-
+    private Vertex stratVt;
     public Graph()
     {
         // this.vertices = new ArrayList<Vertex>();
@@ -16,22 +16,30 @@ public class Graph {
 
     public Vertex addVertex(String name)
     {
-        Vertex currVertex;
-        if (!vertices.containsKey(name)) {
-             currVertex = new Vertex(name);
-            // this.vertices.add(newVertex);
-            this.vertices.put(name, currVertex);
-            return currVertex;
+            Vertex currVertex;
+        if (this.stratVt!=null) 
+        {
+            if (!vertices.containsKey(name)) {
+                 currVertex = new Vertex(name);
+                // this.vertices.add(newVertex);
+                this.vertices.put(name, currVertex);
+                return currVertex;
+            }
+            else{
+                currVertex = vertices.get(name);
+                return currVertex;
+            }    
         }
         else{
-            currVertex = vertices.get(name);
+            currVertex = new Vertex(name);
+            this.stratVt = currVertex;
             return currVertex;
         }
     }
 
-    public void addEdge(Vertex v1, Vertex v2, int weight)
+    public void addEdge(Vertex v1, Vertex v2, int weight,String en)
     {
-        Edge currEdge = new Edge(v1, v2, weight);
+        Edge currEdge = new Edge(v1, v2, weight,en);
         v1.addEdge(v2, weight,currEdge);
         v2.addEdge(v1, weight,currEdge);
     }
@@ -41,6 +49,10 @@ public class Graph {
         return this.vertices;
     }
 
+    public Vertex getStartVt()
+    {
+        return this.stratVt;
+    }
     // public ArrayList<Vertex> getVertices()
     // {
     //     return this.vertices;

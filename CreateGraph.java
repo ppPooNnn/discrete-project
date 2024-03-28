@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class CreateGraph {
     private int vertices;
@@ -35,13 +37,18 @@ public class CreateGraph {
             this.endvt = graph.addVertex(endv);
             System.out.printf("with weight: ");
             int w = sc.nextInt();
-            graph.addEdge(startvt, endvt, w);
+            graph.addEdge(startvt, endvt, w,"e"+i);
         }
     }
 
     public void isConnected(Graph graph)
-    {
-        ArrayList<Vertex> CheckVertices = new ArrayList<>();
-        System.out.println(graph.getVertices().values());
+    {  
+        Set<String>allvtname = graph.getVertices().keySet();
+        Map<String,Vertex>vtwithValue = graph.getVertices();
+        for(String vtname:allvtname)
+        {
+            Vertex currVt = vtwithValue.get(vtname);
+            System.out.println(currVt);
+        }
     }
 }

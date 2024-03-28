@@ -12,6 +12,10 @@ public class Vertex {
         this.connctsvt = new ArrayList<Vertex>();
     }
 
+    public String getName()
+    {
+        return this.name;
+    }
     // public void addEdge(Vertex conctVertex, Integer weight)
     // {
     //     this.edges.add(new Edge(this, conctVertex, weight));
@@ -30,6 +34,17 @@ public class Vertex {
 
     @Override
     public String toString() {
-        return "Vertex [name=" + name + ", edges=" + edges + ", connctsvt=" + connctsvt + "]";
+        return "Vertex [name=" + name + ", edges=" + edges.toString() + ", connctsvt=" + this.getconnctVt() + "]";
+    }
+
+    public ArrayList<String>getconnctVt()
+    {
+        ArrayList<String>conVt = new ArrayList<>();
+        for(Vertex vt:connctsvt)
+        {
+            String Vtname = vt.getName();
+            conVt.add(Vtname);
+        }
+        return conVt;
     }
 }
