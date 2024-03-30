@@ -1,7 +1,5 @@
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 public class CreateGraph {
     private int vertices;
