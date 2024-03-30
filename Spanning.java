@@ -21,8 +21,13 @@ public class Spanning
         Set<Vertex> visited = new HashSet<>();
         visited.add(graph.getStartVt());
         DFS(graph.getStartVt(), visited);
-        Map<String, Vertex> vertices = graph.getVertices();
+        Map<String, Vertex> vertices = new HashMap<>();
+        for(Map.Entry<String, Vertex> entry : graph.getVertices().entrySet())
+            vertices.put(entry.getKey(), entry.getValue());
+        // graph.getVertices();
         vertices.values().removeAll(visited);
+        System.out.println("\n\n----------------------------------------------------------------");
+        System.out.println("show vertices " + vertices.keySet());
         if(vertices.size() == 0)
             return true;
         return false;
@@ -33,7 +38,12 @@ public class Spanning
     {
         for(Edge e: start.getEdges())
         {
-            Vertex neighbor = e.getEnd();
+            Vertex neighbor;
+            if(e.getEnd().equals(start))
+                neighbor = e.getStart();
+            else
+                neighbor = e.getEnd();
+
             if(!visitedVertices.contains(neighbor))
             {
                 visitedVertices.add(neighbor);
