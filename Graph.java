@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph {
     // private ArrayList<Vertex> vertices;
@@ -62,6 +63,12 @@ public class Graph {
     public ArrayList<Edge> getEdgesList()
     {
         return this.edgeList;
+    }
+
+    public int gettotalVertices()
+    {
+        Set<String>allvertices = this.vertices.keySet();
+        return allvertices.size();
     }
     // public ArrayList<Vertex> getVertices()
     // {

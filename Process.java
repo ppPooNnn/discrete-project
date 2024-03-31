@@ -7,8 +7,10 @@ public class Process {
         System.out.println(spGraph.isConnected());
         if(spGraph.isConnected())
         {
-            ShortestPath SP = new ShortestPath(cg.getGraph());
-            SP.run();
+            // ShortestPath SP = new ShortestPath(cg.getGraph());
+            // SP.run();
+            Prim p = new Prim(cg.getGraph());
+            p.run();
         }
         else
             System.out.println("Graph is not connect");
