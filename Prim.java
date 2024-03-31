@@ -45,7 +45,7 @@ public class Prim {
         }
     }
     public void printmst(){
-        System.out.println("minimum spanning tree using prim's algorithm");
+        System.out.println("minimum spanning tree using Prim's algorithm");
         this.mst.forEach(System.out::println);
     }
 

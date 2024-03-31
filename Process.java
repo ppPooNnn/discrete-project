@@ -9,8 +9,10 @@ public class Process {
         {
             // ShortestPath SP = new ShortestPath(cg.getGraph());
             // SP.run();
-            Prim p = new Prim(cg.getGraph());
-            p.run();
+            // Prim p = new Prim(cg.getGraph());
+            // p.run();
+            Kruskarl k = new Kruskarl(cg.getGraph());
+            k.run();
         }
         else
             System.out.println("Graph is not connect");
