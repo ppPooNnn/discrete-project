@@ -11,8 +11,10 @@ public class Process {
             // SP.run();
             // Prim p = new Prim(cg.getGraph());
             // p.run();
-            Kruskarl k = new Kruskarl(cg.getGraph());
-            k.run();
+            // Kruskarl k = new Kruskarl(cg.getGraph());
+            // k.run();
+            Kruskal k = new Kruskal();
+            System.out.println(k.kruskalMST(cg.getGraph()));
         }
         else
             System.out.println("Graph is not connect");
