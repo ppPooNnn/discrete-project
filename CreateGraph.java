@@ -24,10 +24,19 @@ public class CreateGraph {
     public void createVertex()
     {
         System.out.println("Please enter vertices name");
-        for(int i = 0; i < vertices; i++)
+        int i = 0;
+        while(i < vertices)
         {
             System.out.printf("No.%d : ", i + 1);
-            graph.addVertex(sc.nextLine());
+            String vertex = sc.nextLine();
+            if(graph.getVertices().containsKey(vertex))
+            {
+                System.out.println("This vertex is already add !!!");
+                System.out.println("Please try agian");
+                continue;
+            }
+            graph.addVertex(vertex);
+            i++;
         }
     }
 
@@ -38,9 +47,24 @@ public class CreateGraph {
             System.out.printf("Edges "+ (i + 1) +" ");
             System.out.printf("from: ");
             String startv = sc.nextLine();
+            while(graph.getVertexByName(startv) == null)
+            {
+                System.out.println("This graph is not contain this vertex!!!!");
+                System.out.println("Please try again");
+                System.out.printf("Edges "+ (i + 1) +" ");
+                System.out.printf("from: ");
+                startv = sc.nextLine();
+            }
             this.startvt = graph.getVertexByName(startv);
             System.out.printf("to: ");
             String endv = sc.nextLine();
+            while(graph.getVertexByName(endv) == null)
+            {
+                System.out.println("This graph is not contain this vertex!!!!");
+                System.out.println("Please try again");
+                System.out.printf("to: ");
+                endv = sc.nextLine();
+            }
             this.endvt = graph.getVertexByName(endv);
             System.out.printf("with weight: ");
             int w = sc.nextInt();
