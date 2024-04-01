@@ -33,7 +33,7 @@ public class CreateAutomaton{
         amtSta = sc.nextInt();
         System.out.println("Enter the amount of accecpting states: ");
         amtAcc = sc.nextInt();
-        String trash = sc.nextLine();
+        sc.nextLine();
         createStates(amtSta);
         setInitialState();
         addAccecptingStates(amtAcc);
@@ -82,8 +82,7 @@ public class CreateAutomaton{
             System.out.println("Enter Input String (type 2 to exit): ");
             String str = sc.nextLine();
             if(str.equals("2")){
-                sc.close();
-                System.exit(0);
+                return;
             }
             automaton.runAutomaton(str);
         }

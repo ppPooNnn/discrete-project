@@ -1,11 +1,7 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Spanning
 {
@@ -26,8 +22,6 @@ public class Spanning
             vertices.put(entry.getKey(), entry.getValue());
         // graph.getVertices();
         vertices.values().removeAll(visited);
-        System.out.println("\n\n----------------------------------------------------------------");
-        System.out.println("show vertices " + vertices.keySet());
         if(vertices.size() == 0)
             return true;
         return false;

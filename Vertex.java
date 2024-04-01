@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Set;
 
 public class Vertex {
     private String name;

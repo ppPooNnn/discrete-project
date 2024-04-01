@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Map;
-import java.util.Optional;
 
 public class Prim {
     private Vertex startVt;

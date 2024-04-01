@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class Kruskal 
 {
-    public ArrayList<Edge> kruskalMST(Graph graph) {
+    public void kruskalMST(Graph graph) {
         ArrayList<Edge> result = new ArrayList<>();
         ArrayList<Edge> edges = graph.getEdgesList();
         
@@ -26,6 +26,6 @@ public class Kruskal
                 result.add(edge);
             }
         }
-        return result;
+        System.out.println(result);
     }
 }

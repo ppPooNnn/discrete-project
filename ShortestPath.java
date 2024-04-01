@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.PriorityQueue;
@@ -57,7 +58,6 @@ public class ShortestPath
 
         distances.put(start.getName(), 0);
         queue.add(new QueueObject(start, 0));
-        // queue.add(new Object(start, 0));
 
         for (Vertex v : graph.getVertices().values())
         {
@@ -68,6 +68,8 @@ public class ShortestPath
         while (!queue.isEmpty())
         {
             Vertex current = queue.poll().v;
+            if(current == end)
+                break;
             for(Edge e : current.getEdges())
             {
                 Integer alternate = distances.get(current.getName()) + e.getWeight();
@@ -80,7 +82,35 @@ public class ShortestPath
                 }
             }
         }
-        System.out.println("distance dict\n" + distances);
-        // System.out.println("previous dict\n" + previous);
+        output(previous);
+    }
+
+    public void output(Dictionary<String, Vertex> previous)
+    {
+        ArrayList<Edge> shortestPathEdges = new ArrayList<>();
+        final Vertex[] currentVertex = new Vertex[1];
+
+        currentVertex[0] = end;
+
+        // Trace back the path from destination to start
+        while (previous.get(currentVertex[0].getName()) != null) {
+            Vertex previousVertex = previous.get(currentVertex[0].getName());
+            Edge edge = previousVertex.getEdges().stream()
+                                            .filter(e -> e.getEnd() == currentVertex[0])
+                                            .findFirst().orElse(null);
+            if (edge != null) {
+                shortestPathEdges.add(edge);
+                currentVertex[0] = previousVertex;
+            }
+            else
+                break;
+        }
+
+        // Output the shortest path graph
+        System.out.println("Shortest Path Graph:");
+        for (int i = shortestPathEdges.size() - 1; i >= 0; i--) {
+            Edge edge = shortestPathEdges.get(i);
+            System.out.println(edge);
+        }
     }
 }

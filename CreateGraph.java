@@ -1,4 +1,3 @@
-import java.util.Map;
 import java.util.Scanner;
 
 public class CreateGraph {
@@ -36,7 +35,7 @@ public class CreateGraph {
     {
         for(int i = 0;i<edges;i++)
         {
-            System.out.printf("Edges "+ i +" ");
+            System.out.printf("Edges "+ (i + 1) +" ");
             System.out.printf("from: ");
             String startv = sc.nextLine();
             this.startvt = graph.getVertexByName(startv);
@@ -46,7 +45,7 @@ public class CreateGraph {
             System.out.printf("with weight: ");
             int w = sc.nextInt();
             sc.nextLine();
-            graph.addEdge(startvt, endvt, w,"e"+i);
+            graph.addEdge(startvt, endvt, w,"e" + (i + 1));
         }
     }
 
