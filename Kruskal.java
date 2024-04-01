@@ -26,6 +26,10 @@ public class Kruskal
                 result.add(edge);
             }
         }
-        System.out.println(result);
+
+        System.out.println("minimum spanning tree using Kruskal's algorithm");
+        for(Edge e: result){
+            System.out.println(e);
+        };
     }
 }

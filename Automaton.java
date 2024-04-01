@@ -33,11 +33,7 @@ public class Automaton {
     public State getStateFromName(String str){
         return states.get(str);
     }
-
-    public void addAccecptingState(State s){
-        acceptingStates.add(s);
-    }
-
+    
     public HashMap<String, State> getStates(){
         return states;
     }
@@ -50,17 +46,21 @@ public class Automaton {
         this.initialState = initialState;
         this.currentState = initialState;
     }
-
+    
     public State getCurrentState() {
         return currentState;
     }
-
+    
     public void setCurrentState(State currentState) {
         this.currentState = currentState;
     }
-
+    
     public ArrayList<State> getAcceptingStates() {
         return acceptingStates;
+    }
+    
+    public void addAcceptingState(State s){
+        acceptingStates.add(s);
     }
 
     public void runAutomaton(String input){
@@ -72,16 +72,21 @@ public class Automaton {
             else if(tokens[i].trim().equals("1")){
                 currentState = input1();
             }
+            else{
+                System.out.printf("! only 0 and 1 are allowed in the input string !%n%n");
+                return;
+            }
         }
 
         System.out.println("Final State: " + currentState);
 
         if(acceptingStates.contains(currentState)){
-            System.out.println("--accepted--");
+            System.out.println("--input " + input + " accepted--");
         }
         else{
-            System.out.println("--rejected--");
+            System.out.println("--input " + input + " rejected--");
         }
+        System.out.println();
     }
     
 }

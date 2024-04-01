@@ -22,16 +22,15 @@ public class CreateAutomaton{
         s1.setValues("s1", s1, s2);
         s2.setValues("s2", s1, s0);
         automaton.setInitialState(s0);
-        automaton.addAccecptingState(s2);
-        System.out.println(automaton.getInitialState());
+        automaton.addAcceptingState(s2);
         execute();
     }
 
     public void create(){
         automaton = new Automaton();
-        System.out.println("Enter the amount of states: ");
+        System.out.println("Enter the number of states: ");
         amtSta = sc.nextInt();
-        System.out.println("Enter the amount of accecpting states: ");
+        System.out.println("Enter the number of accepting states: ");
         amtAcc = sc.nextInt();
         sc.nextLine();
         createStates(amtSta);
@@ -61,7 +60,7 @@ public class CreateAutomaton{
         for(int i=0; i<amt; i++){
             System.out.printf("Enter accepting state number %d%n: ", i+1);
             accName = sc.nextLine();
-            automaton.addAccecptingState(automaton.getStateFromName(accName));
+            automaton.addAcceptingState(automaton.getStateFromName(accName));
         }
     }
 
@@ -82,6 +81,8 @@ public class CreateAutomaton{
             System.out.println("Enter Input String (type 2 to exit): ");
             String str = sc.nextLine();
             if(str.equals("2")){
+                System.out.println("---------------------------- Exit ----------------------------");
+                sc.close();
                 return;
             }
             automaton.runAutomaton(str);

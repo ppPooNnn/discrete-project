@@ -11,10 +11,10 @@ public class CreateGraph {
     public void creation()
     {
         this.graph = new Graph();
-        System.out.println("Please enter number of vertices and edges");
+        System.out.println("Please enter the amount of vertices and edges");
         System.out.printf("Vertex : ");
         this.vertices = sc.nextInt();
-        System.out.printf("Edges : ");
+        System.out.printf("Edge : ");
         this.edges = sc.nextInt();
         sc.nextLine();
         createVertex();
@@ -23,7 +23,7 @@ public class CreateGraph {
 
     public void createVertex()
     {
-        System.out.println("Please enter vertices name");
+        System.out.println("Enter the vertices' name");
         int i = 0;
         while(i < vertices)
         {
@@ -31,8 +31,8 @@ public class CreateGraph {
             String vertex = sc.nextLine();
             if(graph.getVertices().containsKey(vertex))
             {
-                System.out.println("This vertex is already add !!!");
-                System.out.println("Please try agian");
+                System.out.println("! This vertex already exists !");
+                System.out.println("Please re-enter the data");
                 continue;
             }
             graph.addVertex(vertex);
@@ -44,14 +44,14 @@ public class CreateGraph {
     {
         for(int i = 0;i<edges;i++)
         {
-            System.out.printf("Edges "+ (i + 1) +" ");
+            System.out.printf("Edge "+ (i + 1) +" ");
             System.out.printf("from: ");
             String startv = sc.nextLine();
             while(graph.getVertexByName(startv) == null)
             {
-                System.out.println("This graph is not contain this vertex!!!!");
-                System.out.println("Please try again");
-                System.out.printf("Edges "+ (i + 1) +" ");
+                System.out.println("! This graph does not contain the specified vertex !");
+                System.out.println("Please re-enter the data");
+                System.out.printf("Edge "+ (i + 1) +" ");
                 System.out.printf("from: ");
                 startv = sc.nextLine();
             }
@@ -60,8 +60,8 @@ public class CreateGraph {
             String endv = sc.nextLine();
             while(graph.getVertexByName(endv) == null)
             {
-                System.out.println("This graph is not contain this vertex!!!!");
-                System.out.println("Please try again");
+                System.out.println("! This graph does not contain the specified vertex !");
+                System.out.println("Please re-enter the data");
                 System.out.printf("to: ");
                 endv = sc.nextLine();
             }

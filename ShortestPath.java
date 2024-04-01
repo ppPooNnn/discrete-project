@@ -24,10 +24,10 @@ public class ShortestPath
 
     public void Display()
     {
-        System.out.println("Please Enter Start Vertex : ");
+        System.out.print("Please enter the start vertex : ");
         String strStart = sc.nextLine();
         this.start = graph.getVertexByName(strStart);
-        System.out.println("Please Enter Destination Vertex : ");
+        System.out.print("Please enter the destination vertex : ");
         String strEnd = sc.nextLine();
         this.end = graph.getVertexByName(strEnd);
     }
