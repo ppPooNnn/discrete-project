@@ -34,7 +34,7 @@ public class Prim {
             Vertex dest;
             currconnctEdge = currVt.getEdges();
             currconnctEdge.forEach(m->this.allconnctedge.add(m));
-            shrtEdge = allconnctedge.stream().filter(m->(((!alrdyexplo.contains(m.getEnd())))||(!alrdyexplo.contains(m.getStart())))
+            shrtEdge = allconnctedge.stream().filter(m->(!alrdyexplo.contains(m.getEnd()))
             &&!mst.contains(m)).min(Comparator.comparing(Edge::getWeight)).get();
             dest = shrtEdge.getEnd();
             alrdyexplo.add(dest);

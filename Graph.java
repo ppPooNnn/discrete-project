@@ -7,7 +7,7 @@ public class Graph {
     // private ArrayList<Vertex> vertices;
     private Map<String,Vertex> vertices;
     private ArrayList<Edge> edgeList;
-    private Vertex stratVt;
+    private Vertex startVt;
     public Graph()
     {
         // this.vertices = new ArrayList<Vertex>();
@@ -18,7 +18,7 @@ public class Graph {
     public void addVertex(String name)
     {
             Vertex currVertex;
-        if (this.stratVt!=null) 
+        if (this.startVt!=null) 
         {
             if (!vertices.containsKey(name)) {
                 currVertex = new Vertex(name);
@@ -32,7 +32,7 @@ public class Graph {
         }
         else{
             currVertex = new Vertex(name);
-            this.stratVt = currVertex;
+            this.startVt = currVertex;
             this.vertices.put(name, currVertex);
         }
     }
@@ -57,7 +57,7 @@ public class Graph {
 
     public Vertex getStartVt()
     {
-        return this.stratVt;
+        return this.startVt;
     }
 
     public ArrayList<Edge> getEdgesList()
