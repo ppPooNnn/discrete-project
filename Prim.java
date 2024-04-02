@@ -20,11 +20,11 @@ public class Prim {
     
     public void run()
     {
-        findmstpath();
+        findmst();
         printmst();
     }
 
-    public void findmstpath()
+    public void findmst()
     {
         Vertex currVt = this.startVt;
         this.alrdyexplo.add(currVt);
