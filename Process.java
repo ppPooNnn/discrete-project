@@ -38,6 +38,9 @@ public class Process
                     System.out.println("\n\n");
                     break;
 
+                case 4:
+                    break;
+
                 default:
                     System.out.println("\n\nPlease input a number between 1 and 4");
                     System.out.println("\n\n");

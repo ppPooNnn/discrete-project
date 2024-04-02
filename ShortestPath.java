@@ -92,7 +92,6 @@ public class ShortestPath
 
         currentVertex[0] = end;
 
-        // Trace back the path from destination to start
         while (previous.get(currentVertex[0].getName()) != null) {
             Vertex previousVertex = previous.get(currentVertex[0].getName());
             Edge edge = previousVertex.getEdges().stream()
@@ -106,7 +105,6 @@ public class ShortestPath
                 break;
         }
 
-        // Output the shortest path graph
         System.out.println("Shortest Path Graph:");
         for (int i = shortestPathEdges.size() - 1; i >= 0; i--) {
             Edge edge = shortestPathEdges.get(i);
